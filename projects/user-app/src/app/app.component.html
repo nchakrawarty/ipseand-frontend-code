@@ -19,13 +19,12 @@ hi
 <form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
     First Name<input name="firstName" type="text" ngModel/>
     <br> Last Name <input name="lastName" type="text" ngModel/>
+    <br>Email<input type="email" name="email" placeholder="emailid" ngModel>
+    <br>Password <input type="password" name="password" placeholder="passwd" ngModel>
     <br> phone <input name="primaryContactNum" type="number" ngModel/>
     <br> secondary number<input name="secondaryPhone" type="number" ngModel/>
     <br> address <input name="address" type="string" ngModel />
-    <br>
-    <input type="email" name="email" placeholder="emailid" ngModel>
-    <br>
-    <input type="password" name="password" placeholder="passwd" ngModel>
+
     <br>
     <input type="submit" value="submit">
 </form>
