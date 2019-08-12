@@ -14,11 +14,12 @@ export class AppComponent implements OnInit {
   }
   users = [{}];
   title = "user-app";
+  nm = "Nripen";
   firstName = "";
   lastName;
   // id = "5d4a987a6ca1e75cc4a3ab55";
   ngOnInit() {
-    this.api.find().subscribe(
+    this.api.find({ where: { firstName: this.nm } }).subscribe(
       res => {
         this.users = res;
         console.log("res", res, this.users);
@@ -42,7 +43,7 @@ export class AppComponent implements OnInit {
         data.address +
         data.secondaryPhone
     );
-    data.address = [{ "first Line": data.address }];
+    data.address = [{ firstLine: data.address }];
     this.api.create(data).subscribe(res => {
       console.log("result is: " + res);
     });
