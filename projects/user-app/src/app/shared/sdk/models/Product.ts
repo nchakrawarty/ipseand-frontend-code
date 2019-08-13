@@ -13,7 +13,12 @@ export interface ProductInterface {
   "weight"?: number;
   "size"?: string;
   "dimension"?: Array<any>;
-  "subCategory"?: string;
+  "subCategoryId"?: string;
+  "categoryId"?: string;
+  "material"?: string;
+  "ratings"?: number;
+  "couponId"?: string;
+  "images"?: Array<any>;
   "id"?: any;
 }
 
@@ -29,7 +34,12 @@ export class Product implements ProductInterface {
   "weight": number;
   "size": string;
   "dimension": Array<any>;
-  "subCategory": string;
+  "subCategoryId": string;
+  "categoryId": string;
+  "material": string;
+  "ratings": number;
+  "couponId": string;
+  "images": Array<any>;
   "id": any;
   constructor(data?: ProductInterface) {
     Object.assign(this, data);
@@ -108,9 +118,29 @@ export class Product implements ProductInterface {
           name: 'dimension',
           type: 'Array&lt;any&gt;'
         },
-        "subCategory": {
-          name: 'subCategory',
+        "subCategoryId": {
+          name: 'subCategoryId',
           type: 'string'
+        },
+        "categoryId": {
+          name: 'categoryId',
+          type: 'string'
+        },
+        "material": {
+          name: 'material',
+          type: 'string'
+        },
+        "ratings": {
+          name: 'ratings',
+          type: 'number'
+        },
+        "couponId": {
+          name: 'couponId',
+          type: 'string'
+        },
+        "images": {
+          name: 'images',
+          type: 'Array&lt;any&gt;'
         },
         "id": {
           name: 'id',
