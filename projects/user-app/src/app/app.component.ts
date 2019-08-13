@@ -9,17 +9,16 @@ import { UserProfileApi } from "../app/shared/sdk/services/custom/UserProfile";
 })
 export class AppComponent implements OnInit {
   constructor(public api: UserProfileApi) {
-    LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+    LoopBackConfig.setBaseURL("http://127.0.0.1:8086");
     // LoopBackConfig.setApiVersion("api");
   }
   users = [{}];
   title = "user-app";
-  nm = "Nripen";
   firstName = "";
   lastName;
   // id = "5d4a987a6ca1e75cc4a3ab55";
   ngOnInit() {
-    this.api.find({ where: { firstName: this.nm } }).subscribe(
+    this.api.find().subscribe(
       res => {
         this.users = res;
         console.log("res", res, this.users);
@@ -29,6 +28,7 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
   onClickSubmit(data) {
     console.log(
       "First Name: " +
@@ -46,6 +46,12 @@ export class AppComponent implements OnInit {
     data.address = [{ firstLine: data.address }];
     this.api.create(data).subscribe(res => {
       console.log("result is: " + res);
+    });
+  }
+  onClickDel(data) {
+    console.log(data);
+    this.api.deleteById(data.id).subscribe(res => {
+      console.log(res);
     });
   }
 }

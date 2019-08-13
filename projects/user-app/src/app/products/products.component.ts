@@ -9,7 +9,7 @@ import { ProductApi } from "../../app/shared/sdk/services/custom/Product";
 })
 export class ProductsComponent implements OnInit {
   constructor(public api: ProductApi) {
-    LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+    LoopBackConfig.setBaseURL("http://127.0.0.1:8086");
   }
   products = [{}];
   ngOnInit() {
@@ -24,6 +24,16 @@ export class ProductsComponent implements OnInit {
     );
   }
 
+  onClickDel(data) {
+    this.api.deleteById(data.id).subscribe(
+      res => {
+        console.log("res", this.products);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
   onClickSubmit(data) {
     console.log(data);
     data.dimension = [data.length, data.width];
