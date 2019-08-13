@@ -11,8 +11,8 @@
 </div>
 <h2>Delete By ID</h2>
 <form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
-       Enter ID <input type="text" name="id" ngModel/>
-        <input type="submit" value="submit">
+    Enter ID <input type="text" name="id" ngModel/>
+    <input type="submit" value="submit">
 </form>
 <br>
 
@@ -28,5 +28,16 @@
     <br> Width <input name="width" type="number" ngModel />
 
     <br>
+    <input type="submit" value="submit">
+</form>
+
+<h1>All Category are</h1>
+<div *ngFor="let cat of allCategory; let i = index">
+    <p>{{i+1}}. {{cat.name}} </p>
+</div>
+<h1>Add Category</h1>
+<form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
+    Category Name<input name="name" type="string" ngModel/>
+    <br/> Category Description<input name="name" type="string" ngModel/>
     <input type="submit" value="submit">
 </form>
