@@ -7,14 +7,17 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { SDKBrowserModule } from "../app/shared/sdk/index";
 import { ProductsComponent } from "./products/products.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { UserComponent } from './user/user.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent],
+  declarations: [AppComponent, ProductsComponent, UserComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     SDKBrowserModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
