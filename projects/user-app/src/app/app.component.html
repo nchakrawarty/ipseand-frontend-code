@@ -4,6 +4,14 @@
         <p> {{u.firstName}} {{u.lastName}} {{u.email}} {{u.address[0].firstLine}} </p>
     </div>
 </div>
+
+<h2>Delete By ID</h2>
+<form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
+       Enter ID <input type="text" name="id" ngModel/>
+        <input type="submit" value="submit">
+</form>
+<br>
+
 <h3>
     Enter User Detail
 </h3>

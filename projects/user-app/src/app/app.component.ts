@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   }
   users = [{}];
   title = "user-app";
-  nm = "Nripen";
   firstName = "";
   lastName;
   // id = "5d4a987a6ca1e75cc4a3ab55";
@@ -29,6 +28,7 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
   onClickSubmit(data) {
     console.log(
       "First Name: " +
@@ -47,6 +47,12 @@ export class AppComponent implements OnInit {
     this.userApi.create(data).subscribe(res => {
       console.log("result is: " + res);
       data.address = [{}];
+    });
+  }
+  onClickDel(data) {
+    console.log(data);
+    this.api.deleteById(data.id).subscribe(res => {
+      console.log(res);
     });
   }
 }
