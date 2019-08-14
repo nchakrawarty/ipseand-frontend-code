@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  Product
+} from '../index';
 
 declare var Object: any;
 export interface CategoryInterface {
@@ -8,6 +11,7 @@ export interface CategoryInterface {
   "description"?: string;
   "image"?: string;
   "id"?: any;
+  proCat?: Product[];
 }
 
 export class Category implements CategoryInterface {
@@ -17,6 +21,7 @@ export class Category implements CategoryInterface {
   "description": string;
   "image": string;
   "id": any;
+  proCat: Product[];
   constructor(data?: CategoryInterface) {
     Object.assign(this, data);
   }
@@ -76,6 +81,16 @@ export class Category implements CategoryInterface {
         },
       },
       relations: {
+        proCat: {
+          name: 'proCat',
+          type: 'Product[]',
+          model: 'Product',
+          relationType: 'hasMany',
+          modelThrough: 'Categoryproduct',
+          keyThrough: 'productId',
+          keyFrom: 'id',
+          keyTo: 'categoryId'
+        },
       }
     }
   }
