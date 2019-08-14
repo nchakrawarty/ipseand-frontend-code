@@ -12,7 +12,7 @@
 <div class=products>
     <h3 *ngIf="products.length<=0">No products available</h3>
     <div class="productcard" *ngFor="let p of products; let i = index">
-        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> <span (click)="onClickDel(p)"> [ X ] </span> </p>
+        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> <span class="close" (click)="onClickDel(p)"> [ X ] </span> </p>
         <p>Price of {{p.name}} is : {{p.price}} </p>
         <p *ngIf="p.category">Category of {{p.name}} is : {{p.category}} </p>
         <p *ngIf="p.subCategory">Sub Category of {{p.name}} is : {{p.subCategory}} </p>
@@ -46,7 +46,7 @@
 
 <h1>All Category are</h1>
 <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-    <p>{{i+1}}. {{cat.name}} <span (click)="onClickDelCat(cat.id)"> [ X ] </span> </p>
+    <p>{{i+1}}. {{cat.name}} <span class="close" (click)="onClickDelCat(cat.id)"> [ X ] </span> </p>
 </div>
 <h1>Add Category</h1>
 <form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
