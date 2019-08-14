@@ -1,56 +1,64 @@
-<h1>Products </h1>
-<h2>Show by category
-    <!-- <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-        <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
-    </div> -->
+<div class="container">
+    <div>
 
-    <select #category (change)="selectedCat(category.value)">
-				<option value="" disabled selected>Select Category</option>
-				<option *ngFor="let cat of allCategory; let i = index" value="{{cat.id}}">{{cat.name}}</option>
-			</select>
-</h2>
-<div class=products>
-    <h3 *ngIf="products.length<=0">No products available</h3>
-    <div class="productcard" *ngFor="let p of products; let i = index">
-        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> <span class="close" (click)="onClickDel(p)"> [ X ] </span> </p>
-        <p>Price of {{p.name}} is : {{p.price}} </p>
-        <p *ngIf="p.category">Category of {{p.name}} is : {{p.category}} </p>
-        <p *ngIf="p.subCategory">Sub Category of {{p.name}} is : {{p.subCategory}} </p>
-        <p *ngIf="p.description">Product Description: {{p.description}} </p><br>
+        <h1>Enter new Product details</h1>
+        <form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
+            <span class="title">Product Name</span><input name="name" type="string" ngModel/><br>
+            <span class="title">Price</span> <input name="price" type="number" ngModel/><br>
+            <span class="title">Quantity</span><input type="number" name="totalQuantity" ngModel><br>
+            <span class="title">Brand</span> <input type="text" name="brand" ngModel><br>
+            <span class="title">Description</span> <input name="description" type="string" ngModel/> <br>
+            <span class="title">Dimensions:</span><br>
+            <span class="title">length</span> <input name="length" type="number" ngModel /><br>
+            <span class="title">Width</span> <input name="width" type="number" ngModel />
+            <br><span class="title">Select Category</span> <br>
+            <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+                <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
+            </div>
+            <br>
+            <input class="button" type="submit" value="submit">
+        </form>
+        <h1>Add new category</h1>
+        <form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
+            Category Name<input name="name" type="string" ngModel/>
+            <br/> Category Description<input name="name" type="string" ngModel/>
+            <input class="button" type="submit" value="submit">
+        </form>
     </div>
-</div>
-<h2>Delete By ID</h2>
-<form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
-    Enter ID <input type="text" name="id" ngModel/>
-    <input class="button" type="submit" value="submit">
-</form>
-<br>
+    <div>
+        <h1>Products </h1>
+        <h2>Show by category
+            <!-- <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+                <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
+            </div> -->
 
-<h1>Enter new Product details</h1>
-<form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
-    Product Name<input name="name" type="string" ngModel/>
-    <br> Price <input name="price" type="number" ngModel/>
-    <br>Quantity<input type="number" name="totalQuantity" ngModel>
-    <br>brand <input type="text" name="brand" ngModel>
-    <br> description <input name="description" type="string" ngModel/>
-    <br> Dimensions:
-    <br> length <input name="length" type="number" ngModel />
-    <br> Width <input name="width" type="number" ngModel />
-    <br>Select Category <br>
-    <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-        <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
+            <select #category (change)="selectedCat(category.value)">
+                <option value="" disabled selected>Select Category</option>
+                <option *ngFor="let cat of allCategory; let i = index" value="{{cat.id}}">{{cat.name}}</option>
+              </select>
+        </h2>
+        <div class=products>
+            <h3 *ngIf="products.length<=0">No products available</h3>
+            <div class="productcard" *ngFor="let p of products; let i = index">
+                <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> <span class="close" (click)="onClickDel(p)"> [ X ] </span> </p>
+                <p>Price of {{p.name}} is : {{p.price}} </p>
+                <p *ngIf="p.category">Category of {{p.name}} is : {{p.category}} </p>
+                <p *ngIf="p.subCategory">Sub Category of {{p.name}} is : {{p.subCategory}} </p>
+                <p *ngIf="p.description">Product Description: {{p.description}} </p><br>
+            </div>
+        </div>
+        <h2>Delete By ID</h2>
+        <form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
+            Enter ID <input type="text" name="id" ngModel/>
+            <input class="button" type="submit" value="submit">
+        </form>
+        <br>
+
+
+        <h1>All category are</h1>
+        <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+            <p>{{i+1}}. {{cat.name}} <span class="close" (click)="onClickDelCat(cat.id)"> [ X ] </span> </p>
+        </div>
     </div>
-    <br>
-    <input class="button" type="submit" value="submit">
-</form>
 
-<h1>All Category are</h1>
-<div class="productcard" *ngFor="let cat of allCategory; let i = index">
-    <p>{{i+1}}. {{cat.name}} <span class="close" (click)="onClickDelCat(cat.id)"> [ X ] </span> </p>
 </div>
-<h1>Add Category</h1>
-<form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
-    Category Name<input name="name" type="string" ngModel/>
-    <br/> Category Description<input name="name" type="string" ngModel/>
-    <input class="button" type="submit" value="submit">
-</form>

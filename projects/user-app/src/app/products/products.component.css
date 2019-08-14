@@ -1,3 +1,16 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-gap: 10px;
+    margin: 5px;
+}
+
+.container>div:nth-child(1) {
+    border: 1px solid;
+    margin: 2px;
+    padding: 0px 20px;
+}
+
 .productcard {
     width: max-content;
     padding: 16px;
@@ -21,6 +34,12 @@
     color: #fff;
     background: #111311;
     cursor: pointer;
+}
+
+.title {
+    min-width: 95px;
+    display: inline-block;
+    margin: 5px;
 }
 
 .close {
