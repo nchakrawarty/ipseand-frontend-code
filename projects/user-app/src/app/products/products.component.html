@@ -2,7 +2,7 @@
 <h2>Show </h2>
 <div>
     <div *ngFor="let p of products; let i = index">
-        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span></p>
+        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> </p>
         <p>Price of {{p.name}} is : {{p.price}} </p>
         <p *ngIf="p.category">Category of {{p.name}} is : {{p.category}} </p>
         <p *ngIf="p.subCategory">Sub Category of {{p.name}} is : {{p.subCategory}} </p>
@@ -25,6 +25,11 @@
     <br> Dimensions:
     <br> length <input name="length" type="number" ngModel />
     <br> Width <input name="width" type="number" ngModel />
+    <br>Select Category <br>
+    <div *ngFor="let cat of allCategory; let i = index" style="display: inline; padding: 2px 5px; margin: 2px 5px;">
+        <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
+    </div>
+
 
     <br>
     <input type="submit" value="submit">
@@ -32,7 +37,7 @@
 
 <h1>All Category are</h1>
 <div *ngFor="let cat of allCategory; let i = index">
-    <p>{{i+1}}. {{cat.name}} </p>
+    <p>{{i+1}}. {{cat.name}} <span (click)="onClickDelCat(cat.id)"> [ X ] </span> </p>
 </div>
 <h1>Add Category</h1>
 <form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
