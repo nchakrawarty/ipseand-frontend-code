@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
 import { UserProfile } from '../../models/UserProfile';
 import { Product } from '../../models/Product';
+import { Category } from '../../models/Category';
 
 export interface Models { [name: string]: any }
 
@@ -13,6 +14,7 @@ export class SDKModels {
     User: User,
     UserProfile: UserProfile,
     Product: Product,
+    Category: Category,
     
   };
 

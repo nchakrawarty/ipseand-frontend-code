@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LoopBackConfig } from "../../app/shared/sdk/lb.config";
 import { ProductApi } from "../../app/shared/sdk/services/custom/Product";
+import { CategoryApi } from "../../app/shared/sdk/services/custom/Category";
 
 @Component({
   selector: "app-products",
@@ -8,12 +9,13 @@ import { ProductApi } from "../../app/shared/sdk/services/custom/Product";
   styleUrls: ["./products.component.css"]
 })
 export class ProductsComponent implements OnInit {
-  constructor(public api: ProductApi) {
-    LoopBackConfig.setBaseURL("http://127.0.0.1:8086");
+  constructor(public Prodapi: ProductApi, public CatApi: CategoryApi) {
+    LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
   }
+  allCategory = [{}];
   products = [{}];
   ngOnInit() {
-    this.api.find().subscribe(
+    this.Prodapi.find().subscribe(
       res => {
         this.products = res;
         console.log("res", this.products);
@@ -22,10 +24,14 @@ export class ProductsComponent implements OnInit {
         console.log(err);
       }
     );
+    this.CatApi.find().subscribe(res => {
+      this.allCategory = res;
+      console.log("Categories are: ", res);
+    });
   }
 
   onClickDel(data) {
-    this.api.deleteById(data.id).subscribe(
+    this.Prodapi.deleteById(data.id).subscribe(
       res => {
         console.log("res", this.products);
       },
@@ -37,8 +43,13 @@ export class ProductsComponent implements OnInit {
   onClickSubmit(data) {
     console.log(data);
     data.dimension = [data.length, data.width];
-    this.api.create(data).subscribe(res => {
+    this.Prodapi.create(data).subscribe(res => {
       console.log("result is: " + res);
+    });
+  }
+  submitCategory(data) {
+    this.CatApi.create(data).subscribe(res => {
+      console.log("added category is" + res.name);
     });
   }
 }

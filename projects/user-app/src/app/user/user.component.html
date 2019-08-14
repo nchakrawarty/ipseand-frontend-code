@@ -1,0 +1,42 @@
+<h1>
+    Users</h1>
+<div>
+    <div *ngFor="let u of users">
+        <p> {{u.firstName}} {{u.lastName}} {{u.email}} {{u.address[0].firstLine}} </p>
+    </div>
+</div>
+
+<h2>Delete By ID</h2>
+<form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
+    Enter ID <input type="text" name="id" ngModel/>
+    <input type="submit" value="submit">
+</form>
+<br>
+
+<h3>
+    Enter User Detail
+</h3>
+
+<!-- <div>
+    First Name<input name="firstName" type="text" /> <br /> Last Name <input name="lastName" type="text" /><br /> email <input name="email" type="email" /><br /> phone <input name="phone" type="number" /><br
+    /> secondary number<input name="secondaryPhone" type="number" /> <br /> address <input name="address" type="string" /><br /> password
+    <input name="password" type="password" />
+    <button type="submit" (click)="submit(data)">
+Submit
+</button>
+</div> -->
+
+hi
+<form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
+    First Name<input name="firstName" type="text" ngModel/>
+    <br> Last Name <input name="lastName" type="text" ngModel/>
+    <br>Email<input type="email" name="email" placeholder="emailid" ngModel>
+    <br>Password <input type="password" name="password" placeholder="passwd" ngModel>
+    <br> phone <input name="primaryContactNum" type="number" ngModel/>
+    <br> secondary number<input name="secondaryPhone" type="number" ngModel/>
+    <br> address <input name="address" type="string" ngModel />
+
+    <br>
+    <input type="submit" value="submit">
+</form>
+<!-- <app-products></app-products> -->
