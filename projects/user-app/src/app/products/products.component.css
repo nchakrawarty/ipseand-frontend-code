@@ -1,0 +1,17 @@
+.productcard {
+    width: max-content;
+    padding: 16px;
+    display: inline-block;
+    margin: 5px;
+    background: #f9f6f6;
+    /* border: 1px solid #c5c5c5; */
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.43);
+}
+
+.button {
+    padding: 5px;
+    margin: 10px;
+    background: #fff;
+    border: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.43);
+}

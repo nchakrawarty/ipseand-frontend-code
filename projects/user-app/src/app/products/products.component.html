@@ -1,8 +1,18 @@
 <h1>Products </h1>
-<h2>Show </h2>
-<div>
-    <div *ngFor="let p of products; let i = index">
-        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> </p>
+<h2>Show by category
+    <!-- <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+        <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
+    </div> -->
+
+    <select #category (change)="selectedCat(category.value)">
+				<option value="" disabled selected>Select Category</option>
+				<option *ngFor="let cat of allCategory; let i = index" value="{{cat.id}}">{{cat.name}}</option>
+			</select>
+</h2>
+<div class=products>
+    <h3 *ngIf="products.length<=0">No products available</h3>
+    <div class="productcard" *ngFor="let p of products; let i = index">
+        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span> <span (click)="onClickDel(p)"> [ X ] </span> </p>
         <p>Price of {{p.name}} is : {{p.price}} </p>
         <p *ngIf="p.category">Category of {{p.name}} is : {{p.category}} </p>
         <p *ngIf="p.subCategory">Sub Category of {{p.name}} is : {{p.subCategory}} </p>
@@ -12,7 +22,7 @@
 <h2>Delete By ID</h2>
 <form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
     Enter ID <input type="text" name="id" ngModel/>
-    <input type="submit" value="submit">
+    <input class="button" type="submit" value="submit">
 </form>
 <br>
 
@@ -27,13 +37,11 @@
     <br> length <input name="length" type="number" ngModel />
     <br> Width <input name="width" type="number" ngModel />
     <br>Select Category <br>
-    <div *ngFor="let cat of allCategory; let i = index" style="display: inline; padding: 2px 5px; margin: 2px 5px;">
+    <div class="productcard" *ngFor="let cat of allCategory; let i = index">
         <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
     </div>
-
-
     <br>
-    <input type="submit" value="submit">
+    <input class="button" type="submit" value="submit">
 </form>
 
 <h1>All Category are</h1>
@@ -44,5 +52,5 @@
 <form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
     Category Name<input name="name" type="string" ngModel/>
     <br/> Category Description<input name="name" type="string" ngModel/>
-    <input type="submit" value="submit">
+    <input class="button" type="submit" value="submit">
 </form>
