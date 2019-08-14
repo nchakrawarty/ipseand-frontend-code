@@ -9,7 +9,7 @@ import { UserProfileApi } from "../app/shared/sdk/services/custom/UserProfile";
 })
 export class AppComponent implements OnInit {
   constructor(public userApi: UserProfileApi) {
-    LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+    LoopBackConfig.setBaseURL("http://127.0.0.1:8086");
     // LoopBackConfig.setApiVersion("api");
   }
   users = [{}];
