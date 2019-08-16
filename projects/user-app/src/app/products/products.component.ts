@@ -15,6 +15,9 @@ export class ProductsComponent implements OnInit {
     private http: HttpClient
   ) {
     LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+    // LoopBackConfig.setBaseURL(
+    //   "http://apiipseand-env.mrq37cqjnn.us-east-1.elasticbeanstalk.com"
+    // );
   }
   allCategory = [{}];
   products = [{}];
@@ -148,7 +151,7 @@ export class ProductsComponent implements OnInit {
       )
       .subscribe(res => {
         console.log(res);
-        this.products = res;
+        this.products = res as any;
       });
   }
 }
