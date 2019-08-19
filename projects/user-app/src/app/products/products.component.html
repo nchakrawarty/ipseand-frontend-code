@@ -1,32 +1,122 @@
-<h1>Products </h1>
-<h2>Show </h2>
-<div>
-    <div *ngFor="let p of products; let i = index">
-        <p>Name of Product( {{i+1}} ): <span>{{p.name}}</span></p>
-        <p>Price of {{p.name}} is : {{p.price}} </p>
-        <p *ngIf="p.category">Category of {{p.name}} is : {{p.category}} </p>
-        <p *ngIf="p.subCategory">Sub Category of {{p.name}} is : {{p.subCategory}} </p>
-        <p *ngIf="p.description">Product Description: {{p.description}} </p><br>
-    </div>
+<div class="container">
+    <div>
+        <h1>Enter new Product details</h1>
+        <form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
+            <span class="title">Product Name</span
+      ><input name="name" type="string" ngModel /><br />
+      <span class="title">Price</span>
+            <input name="price" type="number" ngModel /><br />
+            <span class="title">Quantity</span
+      ><input type="number" name="totalQuantity" ngModel /><br />
+      <span class="title">Brand</span>
+            <input type="text" name="brand" ngModel /><br />
+            <span class="title">Description</span>
+            <input name="description" type="string" ngModel /> <br />
+            <span class="title">Dimensions:</span><br />
+            <span class="title">length</span>
+            <input name="length" type="number" ngModel /><br />
+            <span class="title">Width</span>
+            <input name="width" type="number" ngModel /> <br /><span class="title">Select Category</span
+      >
+      <br />
+      <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+        <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)" />
+        {{ cat.name }}
+      </div>
+      <br />
+      <button class="button" type="submit" value="submit">Add Product</button>
+    </form>
+    <h1>Add new category</h1>
+    <form
+      #categoryForm="ngForm"
+      (ngSubmit)="submitCategory(categoryForm.value)"
+    >
+      Category Name<input name="name" type="string" ngModel /> <br />
+      Category Description<input name="name" type="string" ngModel />
+      <button class="button" type="submit" value="submit">Add Category</button>
+      <!-- <input class="button" type="submit" value="submit" /> -->
+    </form>
+  </div>
+  <div>
+    <h1>
+      Products
+    </h1>
+    <span>Total available products:- {{ products.length }} </span>
+            <h2>
+                Show by category
+                <!-- <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+                <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
+            </div> -->
+
+                <select #category (change)="selectedCat(category.value)">
+        <option value="" disabled selected>Select Category</option>
+        <option
+          *ngFor="let cat of allCategory; let i = index"
+          value="{{ cat.id }}"
+          >{{ cat.name }}</option
+        >
+      </select>
+            </h2>
+            <div class="products">
+                <h3 *ngIf="products.length <= 0">No products available</h3>
+                <div class="productcard" *ngFor="let p of products; let i = index">
+                    <p>
+                        Name of Product( {{ i + 1 }} ): <span>{{ p.name }}</span>
+                        <span class="close" (click)="popup()"> [ X ] </span>
+                        </p>
+                        <!-- <div class="box" >
+                          <a class="button">Let me Pop up</a>
+                        </div>                         -->
+                        
+                    <p>Price of {{ p.name }} is : {{ p.price }}</p>
+                    <p *ngIf="p.category">Category of {{ p.name }} is : {{ p.category }}</p>
+                    <p *ngIf="p.subCategory">
+                        Sub Category of {{ p.name }} is : {{ p.subCategory }}
+                    </p>
+                    <p *ngIf="p.description">Product Description: {{ p.description }}</p>
+                    <br />
+                    <div id="popup1" class="overlay">
+                      <div class="popup">
+                        <h2>DELETE PRODUCT</h2>
+                        <!-- <a class="close" href="products">&times;</a> -->
+                        <div class="content">
+                          Are You Sure You Want to Delete this Product???
+                        </div>
+                        <button id="confirm" (click)="onClickDel(p)">OK</button>
+                        <button (click)="closePopUp()">CANCEL</button>
+                      </div>
+                    </div> 
+
+                    
+                  </div>
+            </div>
+
+                       
+            <h2>Delete By ID</h2>
+            <form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
+                Enter ID <input type="text" name="id" ngModel />
+                <input class="button" type="submit" value="submit" />
+            </form>
+            <br />
+
+            <h1>All category are</h1>
+            <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+                <p>
+                    {{ i + 1 }}. {{ cat.name }}
+                    <span class="close" (click)="popup_cat()"> [ X ] </span>
+                </p>
+                <div id="popup2" class="overlay">
+                  <div class="popup">
+                    <h2>DELETE CATEGORY</h2>
+                    <!-- <a class="close" href="products">&times;</a> -->
+                    <div class="content">
+                      Are You Sure You Want to Delete this Category???
+                    </div>
+                    <button (click)="onClickDelCat(cat.id)">OK</button>
+                    <button (click)="closePopUp_cat()">CANCEL</button>
+                  </div>
+                </div> 
+            </div>
+
+             </div>
 </div>
-<h2>Delete By ID</h2>
-<form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
-       Enter ID <input type="text" name="id" ngModel/>
-        <input type="submit" value="submit">
-</form>
-<br>
-
-<h1>Enter new Product details</h1>
-<form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
-    Product Name<input name="name" type="string" ngModel/>
-    <br> Price <input name="price" type="number" ngModel/>
-    <br>Quantity<input type="number" name="totalQuantity" ngModel>
-    <br>brand <input type="text" name="brand" ngModel>
-    <br> description <input name="description" type="string" ngModel/>
-    <br> Dimensions:
-    <br> length <input name="length" type="number" ngModel />
-    <br> Width <input name="width" type="number" ngModel />
-
-    <br>
-    <input type="submit" value="submit">
-</form>

@@ -13,8 +13,8 @@ export interface ProductInterface {
   "weight"?: number;
   "size"?: string;
   "dimension"?: Array<any>;
-  "subCategoryId"?: string;
-  "categoryId"?: string;
+  "subCategoryId"?: Array<any>;
+  "categoryId"?: Array<any>;
   "material"?: string;
   "ratings"?: number;
   "couponId"?: string;
@@ -34,8 +34,8 @@ export class Product implements ProductInterface {
   "weight": number;
   "size": string;
   "dimension": Array<any>;
-  "subCategoryId": string;
-  "categoryId": string;
+  "subCategoryId": Array<any>;
+  "categoryId": Array<any>;
   "material": string;
   "ratings": number;
   "couponId": string;
@@ -120,11 +120,11 @@ export class Product implements ProductInterface {
         },
         "subCategoryId": {
           name: 'subCategoryId',
-          type: 'string'
+          type: 'Array&lt;any&gt;'
         },
         "categoryId": {
           name: 'categoryId',
-          type: 'string'
+          type: 'Array&lt;any&gt;'
         },
         "material": {
           name: 'material',

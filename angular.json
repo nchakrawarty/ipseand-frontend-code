@@ -25,7 +25,10 @@
             "styles": [
               "projects/user-app/src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootbox/bootbox.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
