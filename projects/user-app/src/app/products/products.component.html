@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-        <h1>Enter new Product details</h1>
+        <h1>Add new Product</h1>
         <form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
             <span class="title">Product Name</span
       ><input name="name" type="string" ngModel /><br />
@@ -25,16 +25,6 @@
       </div>
       <br />
       <button class="button" type="submit" value="submit">Add Product</button>
-    </form>
-    <h1>Add new category</h1>
-    <form
-      #categoryForm="ngForm"
-      (ngSubmit)="submitCategory(categoryForm.value)"
-    >
-      Category Name<input name="name" type="string" ngModel /> <br />
-      Category Description<input name="name" type="string" ngModel />
-      <button class="button" type="submit" value="submit">Add Category</button>
-      <!-- <input class="button" type="submit" value="submit" /> -->
     </form>
   </div>
   <div>
@@ -73,19 +63,11 @@
                     <br />
                 </div>
             </div>
-            <h2>Delete By ID</h2>
+            <!-- <h2>Delete By ID</h2>
             <form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
                 Enter ID <input type="text" name="id" ngModel />
                 <input class="button" type="submit" value="submit" />
             </form>
-            <br />
-
-            <h1>All category are</h1>
-            <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-                <p>
-                    {{ i + 1 }}. {{ cat.name }}
-                    <span class="close" (click)="onClickDelCat(cat.id)"> [ X ] </span>
-                </p>
-            </div>
+            <br /> -->
     </div>
 </div>
