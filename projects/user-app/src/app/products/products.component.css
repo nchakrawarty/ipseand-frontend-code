@@ -46,3 +46,7 @@
 .close {
     float: right;
 }
+
+#editform{
+    display:none;
+}
