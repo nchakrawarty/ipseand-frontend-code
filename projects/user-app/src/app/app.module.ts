@@ -11,9 +11,10 @@ import { ProductsComponent } from "./products/products.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { UserComponent } from "./user/user.component";
 import { CartComponent } from './cart/cart.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, UserComponent, CartComponent],
+  declarations: [AppComponent, ProductsComponent, UserComponent, CartComponent, CategoryComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

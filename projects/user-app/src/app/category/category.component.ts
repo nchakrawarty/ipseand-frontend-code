@@ -1,14 +1,16 @@
 import { Component, OnInit } from "@angular/core";
+
 import { LoopBackConfig } from "../../app/shared/sdk/lb.config";
 import { ProductApi } from "../../app/shared/sdk/services/custom/Product";
 import { CategoryApi } from "../../app/shared/sdk/services/custom/Category";
 import { HttpClient } from "@angular/common/http";
+
 @Component({
-  selector: "app-products",
-  templateUrl: "./products.component.html",
-  styleUrls: ["./products.component.css"]
+  selector: "app-category",
+  templateUrl: "./category.component.html",
+  styleUrls: ["./category.component.css"]
 })
-export class ProductsComponent implements OnInit {
+export class CategoryComponent implements OnInit {
   constructor(
     public Prodapi: ProductApi,
     public CatApi: CategoryApi,
@@ -22,7 +24,6 @@ export class ProductsComponent implements OnInit {
   allCategory = [{}];
   products = [{}];
   selectedcat = [];
-  editProduct = [{}];
   ngOnInit() {
     this.Prodapi.find().subscribe(
       res => {
@@ -154,22 +155,5 @@ export class ProductsComponent implements OnInit {
         console.log(res);
         this.products = res as any;
       });
-  }
-
-  editproduct(data){
-    document.getElementById("editform").style.display="block";
-    this.editProduct = data;
-    console.log(this.editProduct)
-  }
-  closeform(){
-    document.getElementById("editform").style.display="none";
-   
-  }
-  onClickSave(data){
-    console.log(data.id);
-    this.Prodapi.replaceById(data.id,data).subscribe(res=> {
-       console.log(data);
-    });
-    
   }
 }

@@ -1,0 +1,20 @@
+<div class="container">
+    <div>
+        <h1>Add new category</h1>
+        <form #categoryForm="ngForm" (ngSubmit)="submitCategory(categoryForm.value)">
+            Category Name<input name="name" type="string" ngModel /> <br /> Category Description<input name="name" type="string" ngModel />
+            <button class="button" type="submit" value="submit">Add Category</button>
+            <!-- <input class="button" type="submit" value="submit" /> -->
+        </form>
+    </div>
+
+    <div>
+        <h1>All category are</h1>
+        <div class="productcard" *ngFor="let cat of allCategory; let i = index">
+            <p>
+                {{ i + 1 }}. {{ cat.name }}
+                <span class="close" (click)="onClickDelCat(cat.id)"> [ X ] </span>
+            </p>
+        </div>
+    </div>
+</div>
