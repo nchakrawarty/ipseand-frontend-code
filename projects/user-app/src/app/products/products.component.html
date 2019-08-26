@@ -70,6 +70,7 @@
                         Sub Category of {{ p.name }} is : {{ p.subCategory }}
                     </p>
                     <p *ngIf="p.description">Product Description: {{ p.description }}</p>
+                    <button (click)="addToCart(p.id)">Add To Cart</button>
                     <br />
                 </div>
             </div>

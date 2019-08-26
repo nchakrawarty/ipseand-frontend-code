@@ -3,6 +3,10 @@ import { LoopBackConfig } from "../../app/shared/sdk/lb.config";
 import { ProductApi } from "../../app/shared/sdk/services/custom/Product";
 import { CategoryApi } from "../../app/shared/sdk/services/custom/Category";
 import { HttpClient } from "@angular/common/http";
+import { CartComponent } from "../cart/cart.component";
+
+import { Router, NavigationExtras } from '@angular/router';
+
 @Component({
   selector: "app-products",
   templateUrl: "./products.component.html",
@@ -10,6 +14,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ProductsComponent implements OnInit {
   constructor(
+    private router: Router,
     public Prodapi: ProductApi,
     public CatApi: CategoryApi,
     private http: HttpClient
@@ -154,5 +159,15 @@ export class ProductsComponent implements OnInit {
         console.log(res);
         this.products = res as any;
       });
+  }
+
+  addToCart(id, url, banner) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "id": id
+      }
+  };
+  this.router.navigateByUrl('/cart', { state: { id: id } });
+    //  this.router.navigate(['/cart'], navigationExtras);
   }
 }
