@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  Category
+} from '../index';
 
 declare var Object: any;
 export interface ProductInterface {
@@ -14,12 +17,13 @@ export interface ProductInterface {
   "size"?: string;
   "dimension"?: Array<any>;
   "subCategoryId"?: Array<any>;
-  "categoryId"?: Array<any>;
+  "categoryId"?: string;
   "material"?: string;
   "ratings"?: number;
   "couponId"?: string;
   "images"?: Array<any>;
   "id"?: any;
+  productCategory?: Category[];
 }
 
 export class Product implements ProductInterface {
@@ -35,12 +39,13 @@ export class Product implements ProductInterface {
   "size": string;
   "dimension": Array<any>;
   "subCategoryId": Array<any>;
-  "categoryId": Array<any>;
+  "categoryId": string;
   "material": string;
   "ratings": number;
   "couponId": string;
   "images": Array<any>;
   "id": any;
+  productCategory: Category[];
   constructor(data?: ProductInterface) {
     Object.assign(this, data);
   }
@@ -124,7 +129,7 @@ export class Product implements ProductInterface {
         },
         "categoryId": {
           name: 'categoryId',
-          type: 'Array&lt;any&gt;'
+          type: 'string'
         },
         "material": {
           name: 'material',
@@ -148,6 +153,16 @@ export class Product implements ProductInterface {
         },
       },
       relations: {
+        productCategory: {
+          name: 'productCategory',
+          type: 'Category[]',
+          model: 'Category',
+          relationType: 'hasMany',
+          modelThrough: 'Categoryproduct',
+          keyThrough: 'categoryId',
+          keyFrom: 'id',
+          keyTo: 'productId'
+        },
       }
     }
   }
