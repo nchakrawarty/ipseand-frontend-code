@@ -11,7 +11,7 @@ export interface CategoryInterface {
   "description"?: string;
   "image"?: string;
   "id"?: any;
-  proCat?: Product[];
+  categoryProducts?: Product[];
 }
 
 export class Category implements CategoryInterface {
@@ -21,7 +21,7 @@ export class Category implements CategoryInterface {
   "description": string;
   "image": string;
   "id": any;
-  proCat: Product[];
+  categoryProducts: Product[];
   constructor(data?: CategoryInterface) {
     Object.assign(this, data);
   }
@@ -81,8 +81,8 @@ export class Category implements CategoryInterface {
         },
       },
       relations: {
-        proCat: {
-          name: 'proCat',
+        categoryProducts: {
+          name: 'categoryProducts',
           type: 'Product[]',
           model: 'Product',
           relationType: 'hasMany',
