@@ -20,9 +20,10 @@ export class ProductsComponent implements OnInit {
     // );
   }
   allCategory = [{}];
-  products = [{}];
+  products = [];
   selectedcat = [];
-  editProduct = [{}];
+  editProduct={};
+  editp : any;
   ngOnInit() {
     this.Prodapi.find().subscribe(
       res => {
@@ -47,6 +48,15 @@ export class ProductsComponent implements OnInit {
           location.hostname +
           ":3000/api/categories/5d52c020d637295bfc76c216/proCat"
       )
+
+      // this.http
+      //   .get(
+      //     location.protocol +
+      //     "//" +
+      //       location.hostname +
+      //       ":3000/api/categoryproduct"
+      //   )
+
       .subscribe(res => {
         console.log(res);
       });
@@ -156,16 +166,24 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  editproduct(data){
-    document.getElementById("editform").style.display="block";
+  editproduct(data) {
+    document.getElementById("editform").style.display = "block";
     this.editProduct = data;
-    console.log(this.editProduct)
+    console.log(this.editProduct);
+    this.editp = this.editProduct;
+    for(var i in this.products){
+      if(this.products[i].id == data.id){
+        this.editp.categoryId= data.categoryId;
+          console.log(data.categoryId);
+      }
+    // console.log(this.products[i].categoryId);
+    }
   }
   closeform(){
     document.getElementById("editform").style.display="none";
    
   }
-  onClickSave(data){
+  onClickSave(data,categoryId){
     console.log(data.id);
     this.Prodapi.replaceById(data.id,data).subscribe(res=> {
        console.log(data);

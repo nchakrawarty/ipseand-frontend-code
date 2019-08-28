@@ -31,11 +31,11 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for proCat.
+   * Find a related item by id for categoryProducts.
    *
    * @param {any} id category id
    *
-   * @param {any} fk Foreign key for proCat
+   * @param {any} fk Foreign key for categoryProducts
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -46,10 +46,10 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public findByIdProCat(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdCategoryProducts(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/:fk";
+    "/categories/:id/categoryProducts/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -61,11 +61,11 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for proCat.
+   * Delete a related item by id for categoryProducts.
    *
    * @param {any} id category id
    *
-   * @param {any} fk Foreign key for proCat
+   * @param {any} fk Foreign key for categoryProducts
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -73,10 +73,10 @@ export class CategoryApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdProCat(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdCategoryProducts(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/:fk";
+    "/categories/:id/categoryProducts/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -88,11 +88,11 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for proCat.
+   * Update a related item by id for categoryProducts.
    *
    * @param {any} id category id
    *
-   * @param {any} fk Foreign key for proCat
+   * @param {any} fk Foreign key for categoryProducts
    *
    * @param {object} data Request data.
    *
@@ -107,10 +107,10 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public updateByIdProCat(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdCategoryProducts(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/:fk";
+    "/categories/:id/categoryProducts/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -124,11 +124,11 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Add a related item by id for proCat.
+   * Add a related item by id for categoryProducts.
    *
    * @param {any} id category id
    *
-   * @param {any} fk Foreign key for proCat
+   * @param {any} fk Foreign key for categoryProducts
    *
    * @param {object} data Request data.
    *
@@ -143,10 +143,10 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public linkProCat(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public linkCategoryProducts(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/rel/:fk";
+    "/categories/:id/categoryProducts/rel/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -160,11 +160,11 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Remove the proCat relation to an item by id.
+   * Remove the categoryProducts relation to an item by id.
    *
    * @param {any} id category id
    *
-   * @param {any} fk Foreign key for proCat
+   * @param {any} fk Foreign key for categoryProducts
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -172,10 +172,10 @@ export class CategoryApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public unlinkProCat(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public unlinkCategoryProducts(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/rel/:fk";
+    "/categories/:id/categoryProducts/rel/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -187,11 +187,11 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Check the existence of proCat relation to an item by id.
+   * Check the existence of categoryProducts relation to an item by id.
    *
    * @param {any} id category id
    *
-   * @param {any} fk Foreign key for proCat
+   * @param {any} fk Foreign key for categoryProducts
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -202,10 +202,10 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public existsProCat(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public existsCategoryProducts(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "HEAD";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/rel/:fk";
+    "/categories/:id/categoryProducts/rel/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -217,7 +217,7 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries proCat of category.
+   * Queries categoryProducts of category.
    *
    * @param {any} id category id
    *
@@ -232,10 +232,10 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public getProCat(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getCategoryProducts(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat";
+    "/categories/:id/categoryProducts";
     let _routeParams: any = {
       id: id
     };
@@ -247,7 +247,7 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in proCat of this model.
+   * Creates a new instance in categoryProducts of this model.
    *
    * @param {any} id category id
    *
@@ -264,10 +264,10 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public createProCat(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createCategoryProducts(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat";
+    "/categories/:id/categoryProducts";
     let _routeParams: any = {
       id: id
     };
@@ -280,7 +280,7 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all proCat of this model.
+   * Deletes all categoryProducts of this model.
    *
    * @param {any} id category id
    *
@@ -290,10 +290,10 @@ export class CategoryApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteProCat(id: any, customHeaders?: Function): Observable<any> {
+  public deleteCategoryProducts(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat";
+    "/categories/:id/categoryProducts";
     let _routeParams: any = {
       id: id
     };
@@ -304,7 +304,7 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts proCat of category.
+   * Counts categoryProducts of category.
    *
    * @param {any} id category id
    *
@@ -318,10 +318,10 @@ export class CategoryApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProCat(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countCategoryProducts(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat/count";
+    "/categories/:id/categoryProducts/count";
     let _routeParams: any = {
       id: id
     };
@@ -395,7 +395,339 @@ export class CategoryApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in proCat of this model.
+   * Find a related item by id for productCategory.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {any} fk Foreign key for productCategory
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public findByIdCategoryProductsProductCategory(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for productCategory.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {any} fk Foreign key for productCategory
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdCategoryProductsProductCategory(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for productCategory.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {any} fk Foreign key for productCategory
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public updateByIdCategoryProductsProductCategory(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Add a related item by id for productCategory.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {any} fk Foreign key for productCategory
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public linkCategoryProductsProductCategory(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Remove the productCategory relation to an item by id.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {any} fk Foreign key for productCategory
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public unlinkCategoryProductsProductCategory(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Check the existence of productCategory relation to an item by id.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {any} fk Foreign key for productCategory
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public existsCategoryProductsProductCategory(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "HEAD";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries productCategory of product.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public getCategoryProductsProductCategory(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in productCategory of this model.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public createCategoryProductsProductCategory(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Deletes all productCategory of this model.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteCategoryProductsProductCategory(id: any, nk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts productCategory of product.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countCategoryProductsProductCategory(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory/count";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in categoryProducts of this model.
    *
    * @param {any} id category id
    *
@@ -412,12 +744,48 @@ export class CategoryApi extends BaseLoopBackApi {
    * This usually means the response is a `Category` object.)
    * </em>
    */
-  public createManyProCat(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyCategoryProducts(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/categories/:id/proCat";
+    "/categories/:id/categoryProducts";
     let _routeParams: any = {
       id: id
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in productCategory of this model.
+   *
+   * @param {any} id category id
+   *
+   * @param {any} nk Foreign key for categoryProducts.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Category` object.)
+   * </em>
+   */
+  public createManyCategoryProductsProductCategory(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/categories/:id/categoryProducts/:nk/productCategory";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
     };
     let _postBody: any = {
       data: data

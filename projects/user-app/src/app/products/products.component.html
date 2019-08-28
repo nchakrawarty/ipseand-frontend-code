@@ -4,7 +4,7 @@
         <form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
             <span class="title">Product Name</span>
             <input name="name" type="string" ngModel /><br />
-      <span class="title">Price</span>
+            <span class="title">Price</span>
             <input name="price" type="number" ngModel /><br />
             <span class="title">Quantity</span
       ><input type="number" name="totalQuantity" ngModel /><br />
@@ -16,7 +16,10 @@
             <span class="title">length</span>
             <input name="length" type="number" ngModel /><br />
             <span class="title">Width</span>
-            <input name="width" type="number" ngModel /> <br /><span class="title">Select Category</span>
+
+            <input name="width" type="number" ngModel /> <br /><span class="title">Select Category</span
+      >
+
       <br />
       <div class="productcard" *ngFor="let cat of allCategory; let i = index">
         <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)" />
@@ -60,39 +63,45 @@
                     </p>
                     <p *ngIf="p.description">Product Description: {{ p.description }}</p>
                     <br />
-                    <button (click)="editproduct(p)">EDIT</button>
+
+                    <button class="button" (click)="editproduct(p)">EDIT</button>
                 </div>
                 <div id="editform">
-                  <p> 
-                    Product Details
-                    <span class="close" (click)="closeform()">[ X ]</span> 
-                  </p>
-                  <form #productsdetails="ngForm" (ngSubmit)="onClickSave(productsdetails.value)" >
-                    <p ></p>
-                    <span class="title">Product Name</span>
-                    <input name="name" type="string" ngModel= {{editProduct.name}} /><br />
-                    <span class="title">Price</span>
-                    <input name="price" type="number" ngModel= {{editProduct.price}} /><br />
-                    <span class="title">Quantity</span>
-                    <input type="number" name="totalQuantity" ngModel= {{editProduct.totalQuantity}} /><br />
-                    <span class="title">Brand</span>
-                    <input type="text" name="brand" ngModel= {{editProduct.brand}} /><br />
-                    <span class="title">Description</span>
-                    <input name="description" type="string" ngModel= {{editProduct.description}} /> <br />
-                    <span class="title">Dimensions:</span><br />
-                    <span class="title">length</span>
-                    <input name="length" type="number" ngModel= {{editProduct.width}} /><br />
-                    <span class="title">Width</span>
-                    <input name="width" type="number" ngModel= {{editProduct.name}} /> <br />
-                    <!-- <p name="id" ngModel= {{editProduct.id}}> {{editProduct.id}} </p> -->
-                    <!-- <input name="id" ngModel={{editProduct.id}}/> -->
-                    <input name="id" ngModel={{editProduct.id}} readonly />
-                    <!-- <p [(ngModel)]="editProduct.id"> {{editProduct.id}} </p> -->
-              <br />
-             
-              <button class="button" type="submit" value="submit">SAVE</button>
-            </form>
+                    <p>
+                        Product Details
+                        <span class="close" (click)="closeform()">[ X ]</span>
+                    </p>
+                    <form #productsdetails="ngForm" (ngSubmit)="onClickSave(productsdetails.value,editProduct.categoryId)">
+                        <p></p>
+                        <span class="title">Product Name</span>
+                        <input name="name" type="string" ngModel="{{ editProduct.name }}" /><br />
+                        <span class="title">Price</span>
+                        <input name="price" type="number" ngModel="{{ editProduct.price }}" /><br />
+                        <span class="title">Quantity</span>
+                        <input type="number" name="totalQuantity" ngModel="{{ editProduct.totalQuantity }}" /><br />
+                        <span class="title">Brand</span>
+                        <input type="text" name="brand" ngModel="{{ editProduct.brand }}" /><br />
+                        <span class="title">Description</span>
+                        <input name="description" type="string" ngModel="{{ editProduct.description }}" />
+                        <br />
+                        <span class="title">Dimensions:</span><br />
+                        <span class="title">length</span>
+                        <input name="length" type="number" ngModel="{{ editProduct.width }}" /><br />
+                        <span class="title">Width</span>
+                        <input name="width" type="number" ngModel="{{ editProduct.name }}" /><br />
+                        <div class="productcard" *ngFor="let cat of allCategory; let i = index"> 
+                            <input type="checkbox" value="cat.id" *ngIf= "editProduct.categoryId == cat.id" (change)="showCatSel(cat.id)" checked />                 
+                            <input type="checkbox" value="cat.id" *ngIf= "editProduct.categoryId != cat.id" (change)="showCatSel(cat.id)" />
+                            {{ cat.name }}
+                        </div>
+                        <!-- <p name="id" ngModel= {{editProduct.id}}> {{editProduct.id}} </p> -->
+                        <!-- <input name="id" ngModel={{editProduct.id}}/> -->
+                        <input name="id" ngModel="{{ editProduct.id }}" readonly />
+                        <!-- <p [(ngModel)]="editProduct.id"> {{editProduct.id}} </p> -->
+                        <br />
 
+                        <button class="button" type="submit" value="submit">SAVE</button>
+                    </form>
                 </div>
             </div>
             <!-- <h2>Delete By ID</h2>
