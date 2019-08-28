@@ -1,4 +1,13 @@
+<input (keyup)="searchForm($event)" class="form-control" id="myInput" type="text" placeholder="Search..">
+<div id="filter-records"></div>
 <div class="container">
+    <!-- <div>
+        <h2>Product Details</h2>
+        <div style="color: black;" *ngFor="let item of sws">
+          <a href="https://ipseand.com/products/?q={{item.id}}" target="_blank"><h2>{{item.name}}</h2></a><br>
+          <p>{{item.desc}}</p>
+        </div>
+    </div> -->
     <div>
         <h1>Enter new Product details</h1>
         <form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">

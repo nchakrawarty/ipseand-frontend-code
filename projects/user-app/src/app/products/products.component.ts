@@ -4,6 +4,7 @@ import { ProductApi } from "../../app/shared/sdk/services/custom/Product";
 import { CategoryApi } from "../../app/shared/sdk/services/custom/Category";
 import { HttpClient } from "@angular/common/http";
 import { CartComponent } from "../cart/cart.component";
+declare var $ :any;
 
 import { Router, NavigationExtras } from '@angular/router';
 
@@ -13,6 +14,8 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ["./products.component.css"]
 })
 export class ProductsComponent implements OnInit {
+  vals="";
+  sws:any;
   constructor(
     private router: Router,
     public Prodapi: ProductApi,
@@ -42,7 +45,6 @@ export class ProductsComponent implements OnInit {
       this.allCategory = res;
       console.log("Categories are: ", res);
     });
-
     console.log(location);
 
     this.http
@@ -76,10 +78,48 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
+  searchForm (evn) {
+    if(evn.key !== "Backspace"){
+      if( (evn.key.match(/[a-z]/i) || evn.key.match(/[A-Z]/i) || evn.key.match(/[0-9]/i))) {
+        this.vals += evn.key;
+      }
+    }
+    else {
+      this.vals = this.vals.slice(0, -1);
+    }
+    var value = this.vals;
+    var regex = new RegExp(this.vals, "i");
+            var output = '<div class="row">';
+            var count = 1;
+            var items=[];
+	  $.each(this.products, function(key, val){
+		if ((val.name.search(regex) != -1)||(val.brand.search(regex) != -1)) {
+      // this.items.push("hellow");
+      items.push(val);
+	  // output += '<div class="col-md-6 well">';
+	  // output += '<div class="col-md-3"></div>';
+	  // output += '<div class="col-md-7">';
+	  // output += '<h5>' + val.brand + '</h5>';
+	  // output += '<p>' + val.name + '</p>'
+	  // output += '</div>';
+	  // output += '</div>';
+	  // if(count%2 == 0){
+		// output += '</div><div class="row">'
+	  // }
+	  count++;
+    }
+    console.log(items);
+    // console.log(this.searchValueArray);
+    });
+    this.sws = items;
+	  output += '</div>';
+	  $('#filter-records').html(output);
+  }
   onClickSubmit(data) {
     console.log(data);
     data.dimension = [data.length, data.width];
     data.categoryId = this.selectedcat;
+    data.createDate = new Date();
     // this.Prodapi.create(data).subscribe(res => {
     //   console.log("result is: " + res);
     // });
@@ -121,7 +161,6 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
-
   showCatSel(data) {
     var indexOfEntry = this.selectedcat.indexOf(data);
     if (indexOfEntry < 0) {
