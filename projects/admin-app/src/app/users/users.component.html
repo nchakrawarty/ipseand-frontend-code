@@ -1,0 +1,17 @@
+<div class="products">
+  <h3 *ngIf="products.length <= 0">No products available</h3>
+  <div class="productcard" *ngFor="let p of products; let i = index">
+      <p>
+          Name of Product( {{ i + 1 }} ): <span>{{ p.name }}</span>
+          <span class="close" (click)="onClickDel(p)"> [ X ] </span>
+      </p>
+      <p>Price of {{ p.name }} is : {{ p.price }}</p>
+      <p *ngIf="p.category">Category of {{ p.name }} is : {{ p.category }}</p>
+      <p *ngIf="p.subCategory">
+          Sub Category of {{ p.name }} is : {{ p.subCategory }}
+      </p>
+      <p *ngIf="p.description">Product Description: {{ p.description }}</p>
+      <button (click)="addToCart(p)">Add To Cart</button>
+      <br />
+  </div>
+</div>

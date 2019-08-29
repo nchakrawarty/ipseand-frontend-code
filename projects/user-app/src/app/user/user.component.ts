@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
     // LoopBackConfig.setBaseURL(
     //   "http://apiipseand-env.mrq37cqjnn.us-east-1.elasticbeanstalk.com"
     // );
-    LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+    LoopBackConfig.setBaseURL("http://127.0.0.1:8086");
     // LoopBackConfig.setApiVersion("api");
   }
   users = [{}];
