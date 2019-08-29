@@ -7,12 +7,15 @@ import { SDKBrowserModule } from "../app/shared/sdk/index";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
+
 import { UsersComponent } from './users/users.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
