@@ -12,6 +12,8 @@ export class ContactformServiceService {
 
   constructor(private http: Http) { }
   sendEmail(data, tickets,total): Observable<any> {
+    data.tickets = tickets;
+    data.total = total;
     return this.http.post(this.emailUrl, data)
       .map(response => {
         console.log('Success', response);
