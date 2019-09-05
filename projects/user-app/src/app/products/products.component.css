@@ -46,3 +46,18 @@
 .close {
     float: right;
 }
+
+
+
+.blank {
+    background-color: lightgreen;
+}
+.selected {
+    background-color: lightskyblue;
+}
+.occupied {
+    background-color: red;
+}
+p {
+    font-size: 12px;
+}

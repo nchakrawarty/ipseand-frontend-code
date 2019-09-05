@@ -1,101 +1,185 @@
-<input (keyup)="searchForm($event)" class="form-control" id="myInput" type="text" placeholder="Search..">
-<div id="filter-records"></div>
-<div class="container">
-    <!-- <div>
-        <h2>Product Details</h2>
-        <div style="color: black;" *ngFor="let item of sws">
-          <a href="https://ipseand.com/products/?q={{item.id}}" target="_blank"><h2>{{item.name}}</h2></a><br>
-          <p>{{item.desc}}</p>
-        </div>
-    </div> -->
-    <div>
-        <h1>Enter new Product details</h1>
-        <form #productDetails="ngForm" (ngSubmit)="onClickSubmit(productDetails.value)">
-            <span class="title">Product Name</span
-      ><input name="name" type="string" ngModel /><br />
-      <span class="title">Price</span>
-            <input name="price" type="number" ngModel /><br />
-            <span class="title">Quantity</span
-      ><input type="number" name="totalQuantity" ngModel /><br />
-      <span class="title">Brand</span>
-            <input type="text" name="brand" ngModel /><br />
-            <span class="title">Description</span>
-            <input name="description" type="string" ngModel /> <br />
-            <span class="title">Dimensions:</span><br />
-            <span class="title">length</span>
-            <input name="length" type="number" ngModel /><br />
-            <span class="title">Width</span>
-            <input name="width" type="number" ngModel /> <br /><span class="title">Select Category</span
-      >
-      <br />
-      <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-        <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)" />
-        {{ cat.name }}
-      </div>
-      <br />
-      <button class="button" type="submit" value="submit">Add Product</button>
-    </form>
-    <h1>Add new category</h1>
-    <form
-      #categoryForm="ngForm"
-      (ngSubmit)="submitCategory(categoryForm.value)"
-    >
-      Category Name<input name="name" type="string" ngModel /> <br />
-      Category Description<input name="name" type="string" ngModel />
-      <button class="button" type="submit" value="submit">Add Category</button>
-      <!-- <input class="button" type="submit" value="submit" /> -->
-    </form>
-  </div>
-  <div>
-    <h1>
-      Products
-    </h1>
-    <span>Total available products:- {{ products.length }} </span>
-            <h2>
-                Show by category
-                <!-- <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-                <input type="checkbox" value="cat.id" (change)="showCatSel(cat.id)"> {{cat.name}}
-            </div> -->
-
-                <select #category (change)="selectedCat(category.value)">
-        <option value="" disabled selected>Select Category</option>
-        <option
-          *ngFor="let cat of allCategory; let i = index"
-          value="{{ cat.id }}"
-          >{{ cat.name }}</option
-        >
-      </select>
-            </h2>
-            <div class="products">
-                <h3 *ngIf="products.length <= 0">No products available</h3>
-                <div class="productcard" *ngFor="let p of products; let i = index">
-                    <p>
-                        Name of Product( {{ i + 1 }} ): <span>{{ p.name }}</span>
-                        <span class="close" (click)="onClickDel(p)"> [ X ] </span>
-                    </p>
-                    <p>Price of {{ p.name }} is : {{ p.price }}</p>
-                    <p *ngIf="p.category">Category of {{ p.name }} is : {{ p.category }}</p>
-                    <p *ngIf="p.subCategory">
-                        Sub Category of {{ p.name }} is : {{ p.subCategory }}
-                    </p>
-                    <p *ngIf="p.description">Product Description: {{ p.description }}</p>
-                    <button (click)="addToCart(p.id)">Add To Cart</button>
-                    <br />
-                </div>
-            </div>
-            <h2>Delete By ID</h2>
-            <form #userdel="ngForm" (ngSubmit)="onClickDel(userdel.value)">
-                Enter ID <input type="text" name="id" ngModel />
-                <input class="button" type="submit" value="submit" />
-            </form>
-            <br />
-
-            <h1>All category are</h1>
-            <div class="productcard" *ngFor="let cat of allCategory; let i = index">
-                <p>
-                    {{ i + 1 }}. {{ cat.name }}
-                    <span class="close" (click)="onClickDelCat(cat.id)"> [ X ] </span>
-                </p>
-            </div>
-    </div>
+<div style="text-align: center;">
+<div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+        <div *ngIf="seat.row === 'A'">
+           <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+       </div>
 </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'B'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'C'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'D'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'E'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'F'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'G'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'H'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+    <br>
+<div style="text-align: center;">
+            <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                    <div *ngIf="seat.row === 'I'">
+                       <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+                   </div>
+            </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'J'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'K'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'L'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'M'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'N'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'O'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'P'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'Q'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'R'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'S'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'T'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'U'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'V'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<div style="text-align: center;">
+        <div style="display: inline-block; text-align: center;" *ngFor="let seat of seats; let i = index">
+                <div *ngIf="seat.row === 'W'">
+                   <p class="{{seat.status}}"  (click)="clicked(seat, $event);" style="border: 1px solid grey; margin: 2px; padding: 2px; cursor: pointer;">{{seat.name}}</p>
+               </div>
+        </div>
+</div><br>
+<br>
+<form [formGroup]="contactForm" (ngSubmit)="bookNow(contactForm.value)" novalidate style="text-align: center;">
+        <div class="form-group">
+          <input class="form-group" formControlName="name" placeholder="Name" ><br><br>
+          <input class="form-group" formControlName="email" placeholder="Email" required><br><br>
+          <input class="form-group" formControlName="phone" placeholder="Phone" required><br><br>
+        </div>
+        <button type="submit" [disabled]="contactForm.pristine">BOOK</button><br>
+</form>

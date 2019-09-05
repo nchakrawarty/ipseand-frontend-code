@@ -1,3 +1,5 @@
+<div style="width: 100%; text-align: left;">Cart: {{cartProducts}}</div>
+
 <div class="products">
   <h3 *ngIf="products.length <= 0">No products available</h3>
   <div class="productcard" *ngFor="let p of products; let i = index">

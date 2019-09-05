@@ -21,30 +21,53 @@ export class UsersComponent implements OnInit {
     LoopBackConfig.setBaseURL("http://127.0.0.1:8086");
    }
    port = "8086/api/";
-   allCategory = [{}];
    products = [{}];
-   selectedcat = [];
+   cartProducts: any;
+   cartItems = [{}]
    ngOnInit() {
      this.prodApi.find().subscribe(
        res => {
          this.products = res;
-         console.log("res", this.products);
        },
        err => {
          console.log(err);
        }
      );
+     this.cartApi.find().subscribe(
+      res => {
+        this.cartItems = res;
+        console.log(this.cartItems);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+     this.cartApi.count({uid: 104}).subscribe(
+      res => {
+        this.cartProducts=res.count;
+      },
+      err => {
+        console.log(err);
+      }
+     );
    }
 
    addToCart (p) {
      console.log(p);
+     for(var i=0;i<this.cartItems.length;i++)  {
+       if (this.cartItems[i].products[0].id == p.id) {
+          console.log("Item Already exists");
+       }
+       else {
+         console.log("New Product Added");
+       }
+     }
      var r={uid:"",products:[],orderDate:new Date, totalAmount:0, status:""};
      r.uid = "104";
      r.products.push(p);
      r.orderDate = new Date();
-     r.totalAmount = p.price;
+     r.totalAmount = p.price ; 
      r.status = "Order Received";
-     console.log(r);
      this.cartApi.create(r).subscribe(
       res => {
         console.log("res", res);
@@ -52,7 +75,17 @@ export class UsersComponent implements OnInit {
       err => {
         console.log(err);
       }
+     );
+
+     this.cartApi.count({uid: 104}).subscribe(
+      res => {
+        this.cartProducts=res.count;
+      },
+      err => {
+        console.log(err);
+      }
      )
+
    }
 
 }
